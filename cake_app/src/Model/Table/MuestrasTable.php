@@ -40,6 +40,13 @@ class MuestrasTable extends Table
         $this->setTable('muestras');
         $this->setDisplayField('especie');
         $this->setPrimaryKey('codigo_de_muestra');
+
+        $this->hasOne('resultados', [
+            'foreignKey' => 'codigo_de_muestra',
+            'bindingKey' => 'codigo_de_muestra',
+            'dependent' => true,
+            'cascadeCallbacks' => true,
+        ]);
     }
 
     /**
@@ -54,21 +61,23 @@ class MuestrasTable extends Table
             ->scalar('especie')
             ->maxLength('especie', 255)
             ->requirePresence('especie', 'create')
-            ->notEmptyString('especie');
+            ->notEmptyString('especie', 'Por favor, ingrese el nombre de la especie de la muestra.');
 
         $validator
             ->integer('numero_de_presinto')
             ->requirePresence('numero_de_presinto', 'create')
-            ->notEmptyString('numero_de_presinto');
+            ->notEmptyString('numero_de_presinto', 'Por favor, ingrese el numero del presinto de la muestra.');
 
         $validator
             ->scalar('empresa')
             ->requirePresence('empresa', 'create')
-            ->notEmptyString('empresa');
+            ->notEmptyString('empresa', 'Por favor, ingrese el nombre de la empresa.');
 
         $validator
-            ->integer('cantidad_de_semillas')
-            ->allowEmptyString('cantidad_de_semillas');
+            ->integer('cantidad_de_semillas', 'Debe ser un número entero.')
+            ->requirePresence('cantidad_de_semillas', 'create', 'El campo cantidad es obligatorio.')
+            ->notEmptyString('cantidad_de_semillas', 'Por favor, ingresa una cantidad.')
+            ->greaterThan('cantidad_de_semillas', 0, 'La cantidad debe ser mayor que 0.');
 
         return $validator;
     }

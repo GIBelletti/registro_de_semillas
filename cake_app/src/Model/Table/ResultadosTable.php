@@ -40,6 +40,12 @@ class ResultadosTable extends Table
         $this->setTable('resultados');
         $this->setDisplayField('codigo_de_muestra');
         $this->setPrimaryKey('codigo_de_muestra');
+
+        $this->belongsTo('Muestras', [
+            'foreignKey' => 'codigo_de_muestra',
+            'bindingKey' => 'codigo_de_muestra',
+            'joinType' => 'INNER',
+        ]);
     }
 
     /**
@@ -50,6 +56,11 @@ class ResultadosTable extends Table
      */
     public function validationDefault(Validator $validator): Validator
     {
+        $validator
+            ->integer('codigo_de_muestra', 'Debe ser un número entero')
+            ->requirePresence('codigo_de_muestra', 'create', 'El campo id es obligatorio')
+            ->notEmptyString('codigo_de_muestra', 'Debe asociarse a un ítem existente');
+
         $validator
             ->numeric('poder_germinativo')
             ->requirePresence('poder_germinativo', 'create')
@@ -64,8 +75,17 @@ class ResultadosTable extends Table
             ->scalar('materiales_inertes')
             ->maxLength('materiales_inertes', 4294967295)
             ->requirePresence('materiales_inertes', 'create')
-            ->notEmptyString('materiales_inertes');
+            //->notEmptyString('materiales_inertes');
+            ->allowEmptyString('materiales_inertes');
 
         return $validator;
+    }
+
+    public function buildRules(RulesChecker $rules): RulesChecker
+    {
+        // Asegura que el item_id exista en la tabla items
+        $rules->add($rules->existsIn(['codigo_de_muestra'], 'muestras', 'El /"codigo de muestra/" seleccionado no existe.'));
+
+        return $rules;
     }
 }

@@ -12,7 +12,7 @@ use Cake\ORM\Entity;
  * @property string $especie
  * @property int $numero_de_presinto
  * @property string $empresa
- * @property int|null $cantidad_de_semillas
+ * @property int $cantidad_de_semillas
  */
 class Muestra extends Entity
 {
@@ -26,6 +26,7 @@ class Muestra extends Entity
      * @var array<string, bool>
      */
     protected array $_accessible = [
+        'codigo_de_muestra' => true,
         'especie' => true,
         'numero_de_presinto' => true,
         'empresa' => true,

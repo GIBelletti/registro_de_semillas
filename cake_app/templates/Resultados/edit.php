@@ -27,7 +27,7 @@
                     echo $this->Form->control('materiales_inertes');
                 ?>
             </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
+            <?= $this->Form->button(__('Actualizar')) ?>
             <?= $this->Form->end() ?>
         </div>
     </div>

@@ -15,14 +15,20 @@
         <div class="resultados form content">
             <?= $this->Form->create($resultado) ?>
             <fieldset>
-                <legend><?= __('Add Resultado') ?></legend>
+                <legend><?= __('Agregar Resultado') ?></legend>
                 <?php
+                    echo $this->Form->control('codigo_de_muestra', [
+                        'label' => 'Muestra asociada',
+                        'options' => $list_muestras,  // muestra lista de ítems existentes
+                        'empty' => 'Seleccioná un ítem'
+                    ]);
+                    //echo $this->Form->control('codigo_de_muestra');
                     echo $this->Form->control('poder_germinativo');
                     echo $this->Form->control('pureza');
                     echo $this->Form->control('materiales_inertes');
                 ?>
             </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
+            <?= $this->Form->button(__('Añadir')) ?>
             <?= $this->Form->end() ?>
         </div>
     </div>

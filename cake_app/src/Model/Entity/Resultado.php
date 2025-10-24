@@ -25,6 +25,7 @@ class Resultado extends Entity
      * @var array<string, bool>
      */
     protected array $_accessible = [
+        'codigo_de_muestra' => true,
         'poder_germinativo' => true,
         'pureza' => true,
         'materiales_inertes' => true,

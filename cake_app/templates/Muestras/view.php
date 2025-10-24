@@ -19,12 +19,12 @@
             <h3><?= h($muestra->especie) ?></h3>
             <table>
                 <tr>
-                    <th><?= __('Especie') ?></th>
-                    <td><?= h($muestra->especie) ?></td>
-                </tr>
-                <tr>
                     <th><?= __('Codigo De Muestra') ?></th>
                     <td><?= $this->Number->format($muestra->codigo_de_muestra) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Especie') ?></th>
+                    <td><?= h($muestra->especie) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Numero De Presinto') ?></th>
