@@ -8,7 +8,7 @@
     <aside class="column">
         <div class="side-nav">
             <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('List Resultados'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+            <?= $this->Html->link(__('Lista de Resultados'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
         </div>
     </aside>
     <div class="column column-80">
@@ -18,8 +18,9 @@
                 <legend><?= __('Agregar Resultado') ?></legend>
                 <?php
                     echo $this->Form->control('codigo_de_muestra', [
+                        'type' => 'select',
                         'label' => 'Muestra asociada',
-                        'options' => $list_muestras,  // muestra lista de ítems existentes
+                        'options' => $list_muestras,
                         'empty' => 'Seleccioná un ítem'
                     ]);
                     //echo $this->Form->control('codigo_de_muestra');

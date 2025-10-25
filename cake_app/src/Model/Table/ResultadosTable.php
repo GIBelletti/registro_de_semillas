@@ -84,7 +84,7 @@ class ResultadosTable extends Table
     public function buildRules(RulesChecker $rules): RulesChecker
     {
         // Asegura que el item_id exista en la tabla items
-        $rules->add($rules->existsIn(['codigo_de_muestra'], 'muestras', 'El /"codigo de muestra/" seleccionado no existe.'));
+        $rules->add($rules->existsIn(['codigo_de_muestra'], 'Muestras', 'El /"codigo de muestra/" seleccionado no existe.'));
 
         return $rules;
     }

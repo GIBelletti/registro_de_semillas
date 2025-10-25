@@ -38,7 +38,7 @@ class MuestrasTable extends Table
         parent::initialize($config);
 
         $this->setTable('muestras');
-        $this->setDisplayField('especie');
+        $this->setDisplayField('codigo_de_muestra');
         $this->setPrimaryKey('codigo_de_muestra');
 
         $this->hasOne('resultados', [

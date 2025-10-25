@@ -52,14 +52,8 @@ class ResultadosController extends AppController
             }
             $this->Flash->error(__('The resultado could not be saved. Please, try again.'));
         }
-        /*if (isset($this->Detalles->Items)) {
-            $muestras = $this->Resultados->Muestras->find('list')->toArray();
-        } else {
-            $this->loadModel('Items');
-            $muestras = $this->Muestras->find('list')->toArray();
-        }*/
-        $list_muestras = $this->Resultados->Muestras->find('list')->toArray(); // TODO VALIDAR
-        $this->set(compact('resultado'));
+        $list_muestras = $this->Resultados->Muestras->find('list')->toArray();
+        $this->set(compact('resultado', 'list_muestras'));
     }
 
     /**
