@@ -41,7 +41,7 @@ class MuestrasTable extends Table
         $this->setDisplayField('codigo_de_muestra');
         $this->setPrimaryKey('codigo_de_muestra');
 
-        $this->hasOne('resultados', [
+        $this->hasOne('Resultados', [
             'foreignKey' => 'codigo_de_muestra',
             'bindingKey' => 'codigo_de_muestra',
             'dependent' => true,

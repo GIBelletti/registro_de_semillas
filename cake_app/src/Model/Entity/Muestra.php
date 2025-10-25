@@ -26,7 +26,7 @@ class Muestra extends Entity
      * @var array<string, bool>
      */
     protected array $_accessible = [
-        'codigo_de_muestra' => true,
+        //'codigo_de_muestra' => true,
         'especie' => true,
         'numero_de_presinto' => true,
         'empresa' => true,
