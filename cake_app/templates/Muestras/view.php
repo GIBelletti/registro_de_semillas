@@ -7,11 +7,11 @@
 <div class="row">
     <aside class="column">
         <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('Edit Muestra'), ['action' => 'edit', $muestra->codigo_de_muestra], ['class' => 'side-nav-item']) ?>
-            <?= $this->Form->postLink(__('Delete Muestra'), ['action' => 'delete', $muestra->codigo_de_muestra], ['confirm' => __('Are you sure you want to delete # {0}?', $muestra->codigo_de_muestra), 'class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('List Muestras'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('New Muestra'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
+            <h4 class="heading"><?= __('Acciones') ?></h4>
+            <?= $this->Html->link(__('Editar Muestra'), ['action' => 'edit', $muestra->codigo_de_muestra], ['class' => 'side-nav-item']) ?>
+            <?= $this->Form->postLink(__('Borrar Muestra'), ['action' => 'delete', $muestra->codigo_de_muestra], ['confirm' => __('Are you sure you want to delete # {0}?', $muestra->codigo_de_muestra), 'class' => 'side-nav-item']) ?>
+            <?= $this->Html->link(__('Listado de Muestras'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+            <?= $this->Html->link(__('Registrar nueva Muestra'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
         </div>
     </aside>
     <div class="column column-80">

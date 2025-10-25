@@ -46,6 +46,7 @@ class MuestrasTable extends Table
             'bindingKey' => 'codigo_de_muestra',
             'dependent' => true,
             'cascadeCallbacks' => true,
+            'className' => 'Resultados'
         ]);
     }
 
@@ -66,7 +67,9 @@ class MuestrasTable extends Table
         $validator
             ->integer('numero_de_presinto')
             ->requirePresence('numero_de_presinto', 'create')
-            ->notEmptyString('numero_de_presinto', 'Por favor, ingrese el numero del presinto de la muestra.');
+            ->notEmptyString('numero_de_presinto', 'Por favor, ingrese el numero del presinto de la muestra.')
+            ->greaterThanOrEqual('numero_de_presinto', 0, 'El valor debe ser positivo.');
+
 
         $validator
             ->scalar('empresa')

@@ -45,6 +45,7 @@ class ResultadosTable extends Table
             'foreignKey' => 'codigo_de_muestra',
             'bindingKey' => 'codigo_de_muestra',
             'joinType' => 'INNER',
+            'className' => 'Muestras'
         ]);
     }
 
@@ -64,18 +65,23 @@ class ResultadosTable extends Table
         $validator
             ->numeric('poder_germinativo')
             ->requirePresence('poder_germinativo', 'create')
-            ->notEmptyString('poder_germinativo');
+            ->notEmptyString('poder_germinativo')
+            ->add('poder_germinativo', 'validValue', [
+                'rule' => ['range', 0.0, 1.0],
+            ]);
 
         $validator
             ->numeric('pureza')
             ->requirePresence('pureza', 'create')
-            ->notEmptyString('pureza');
+            ->notEmptyString('pureza')
+            ->add('pureza', 'validValue', [
+                'rule' => ['range', 0.0, 1.0],
+            ]);
 
         $validator
             ->scalar('materiales_inertes')
             ->maxLength('materiales_inertes', 4294967295)
             ->requirePresence('materiales_inertes', 'create')
-            //->notEmptyString('materiales_inertes');
             ->allowEmptyString('materiales_inertes');
 
         return $validator;

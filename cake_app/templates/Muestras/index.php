@@ -11,10 +11,10 @@
         <table>
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('codigo_de_muestra') ?></th>
-                    <th><?= $this->Paginator->sort('especie') ?></th>
-                    <th><?= $this->Paginator->sort('numero_de_presinto') ?></th>
-                    <th><?= $this->Paginator->sort('cantidad_de_semillas') ?></th>
+                    <th><?= $this->Paginator->sort('Codigo_de_muestra') ?></th>
+                    <th><?= $this->Paginator->sort('Especie') ?></th>
+                    <th><?= $this->Paginator->sort('Numero_de_presinto') ?></th>
+                    <th><?= $this->Paginator->sort('Cantidad_de_semillas') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
@@ -26,10 +26,10 @@
                     <td><?= $this->Number->format($muestra->numero_de_presinto) ?></td>
                     <td><?= $muestra->cantidad_de_semillas === null ? '' : $this->Number->format($muestra->cantidad_de_semillas) ?></td>
                     <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $muestra->codigo_de_muestra]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $muestra->codigo_de_muestra]) ?>
+                        <?= $this->Html->link(__('Detalles'), ['action' => 'view', $muestra->codigo_de_muestra]) ?>
+                        <?= $this->Html->link(__('Editar'), ['action' => 'edit', $muestra->codigo_de_muestra]) ?>
                         <?= $this->Form->postLink(
-                            __('Delete'),
+                            __('Borrar'),
                             ['action' => 'delete', $muestra->codigo_de_muestra],
                             [
                                 'method' => 'delete',
@@ -44,12 +44,12 @@
     </div>
     <div class="paginator">
         <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
+            <?= $this->Paginator->first('<< ' . __('Primero')) ?>
+            <?= $this->Paginator->prev('< ' . __('Anterior')) ?>
             <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
+            <?= $this->Paginator->next(__('Siguiente') . ' >') ?>
+            <?= $this->Paginator->last(__('Ultimo') . ' >>') ?>
         </ul>
-        <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
+        <p><?= $this->Paginator->counter(__('Página {{page}} de {{pages}}, mostrando {{current}} registros (total {{count}})')) ?></p>
     </div>
 </div>
