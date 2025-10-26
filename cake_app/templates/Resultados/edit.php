@@ -7,13 +7,13 @@
 <div class="row">
     <aside class="column">
         <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
+            <h4 class="heading"><?= __('Acciones') ?></h4>
             <?= $this->Form->postLink(
-                __('Delete'),
+                __('Borrar'),
                 ['action' => 'delete', $resultado->codigo_de_muestra],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $resultado->codigo_de_muestra), 'class' => 'side-nav-item']
+                ['confirm' => __('¿Estás seguro de que quieres borrar el resultado: {0}?', $resultado->codigo_de_muestra), 'class' => 'side-nav-item']
             ) ?>
-            <?= $this->Html->link(__('List Resultados'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+            <?= $this->Html->link(__('Lista de Resultados'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
         </div>
     </aside>
     <div class="column column-80">
@@ -22,12 +22,22 @@
             <fieldset>
                 <legend><?= __('Edit Resultado') ?></legend>
                 <?php
-                    echo $this->Form->control('poder_germinativo');
-                    echo $this->Form->control('pureza');
+                    echo $this->Form->control('poder_germinativo', [
+                        'type' => 'number',
+                        'step' => '0.05',
+                        'min' => '0.0',
+                        'max' => '1.0'
+                    ]);
+                    echo $this->Form->control('pureza', [
+                        'type' => 'number',
+                        'step' => '0.05',
+                        'min' => '0.0',
+                        'max' => '1.0'
+                    ]);
                     echo $this->Form->control('materiales_inertes');
                 ?>
             </fieldset>
-            <?= $this->Form->button(__('Actualizar')) ?>
+            <?= $this->Form->button(__('Aplicar cambios')) ?>
             <?= $this->Form->end() ?>
         </div>
     </div>

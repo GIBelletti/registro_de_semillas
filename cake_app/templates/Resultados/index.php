@@ -5,7 +5,7 @@
  */
 ?>
 <div class="resultados index content">
-    <?= $this->Html->link(__('New Resultado'), ['action' => 'add'], ['class' => 'button float-right']) ?>
+    <?= $this->Html->link(__('Agregar Resultado'), ['action' => 'add'], ['class' => 'button float-right']) ?>
     <h3><?= __('Resultados') ?></h3>
     <div class="table-responsive">
         <table>
@@ -14,7 +14,7 @@
                     <th><?= $this->Paginator->sort('codigo_de_muestra') ?></th>
                     <th><?= $this->Paginator->sort('poder_germinativo') ?></th>
                     <th><?= $this->Paginator->sort('pureza') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
+                    <th class="actions"><?= __('Acciones') ?></th>
                 </tr>
             </thead>
             <tbody>
@@ -24,14 +24,14 @@
                     <td><?= $this->Number->format($resultado->poder_germinativo) ?></td>
                     <td><?= $this->Number->format($resultado->pureza) ?></td>
                     <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $resultado->codigo_de_muestra]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $resultado->codigo_de_muestra]) ?>
+                        <?= $this->Html->link(__('Detalles'), ['action' => 'view', $resultado->codigo_de_muestra]) ?>
+                        <?= $this->Html->link(__('Editar'), ['action' => 'edit', $resultado->codigo_de_muestra]) ?>
                         <?= $this->Form->postLink(
-                            __('Delete'),
+                            __('Borrar'),
                             ['action' => 'delete', $resultado->codigo_de_muestra],
                             [
                                 'method' => 'delete',
-                                'confirm' => __('Are you sure you want to delete # {0}?', $resultado->codigo_de_muestra),
+                                'confirm' => __('¿Estás seguro de que quieres borrar el resultado: {0}?', $resultado->codigo_de_muestra),
                             ]
                         ) ?>
                     </td>

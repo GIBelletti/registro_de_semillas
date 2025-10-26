@@ -7,11 +7,11 @@
 <div class="row">
     <aside class="column">
         <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('Edit Resultado'), ['action' => 'edit', $resultado->codigo_de_muestra], ['class' => 'side-nav-item']) ?>
-            <?= $this->Form->postLink(__('Delete Resultado'), ['action' => 'delete', $resultado->codigo_de_muestra], ['confirm' => __('Are you sure you want to delete # {0}?', $resultado->codigo_de_muestra), 'class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('List Resultados'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('New Resultado'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
+            <h4 class="heading"><?= __('Acciones') ?></h4>
+            <?= $this->Html->link(__('Editar Resultado'), ['action' => 'edit', $resultado->codigo_de_muestra], ['class' => 'side-nav-item']) ?>
+            <?= $this->Form->postLink(__('Borrar Resultado'), ['action' => 'delete', $resultado->codigo_de_muestra], ['confirm' => __('¿Estás seguro de que quieres borrar el resultado: {0}?', $resultado->codigo_de_muestra), 'class' => 'side-nav-item']) ?>
+            <?= $this->Html->link(__('Lista de Resultados'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+            <?= $this->Html->link(__('Agregar Resultado'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
         </div>
     </aside>
     <div class="column column-80">

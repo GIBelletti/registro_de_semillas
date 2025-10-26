@@ -7,7 +7,7 @@
 <div class="row">
     <aside class="column">
         <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
+            <h4 class="heading"><?= __('Acciones') ?></h4>
             <?= $this->Html->link(__('Lista de Resultados'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
         </div>
     </aside>
@@ -21,15 +21,25 @@
                         'type' => 'select',
                         'label' => 'Muestra asociada',
                         'options' => $list_muestras,
-                        'empty' => 'Seleccioná un ítem'
+                        'empty' => 'Seleccioná una muestra.'
                     ]);
                     //echo $this->Form->control('codigo_de_muestra');
-                    echo $this->Form->control('poder_germinativo');
-                    echo $this->Form->control('pureza');
+                    echo $this->Form->control('poder_germinativo', [
+                        'type' => 'number',
+                        'step' => '0.05',
+                        'min' => '0.0',
+                        'max' => '1.0'
+                    ]);
+                    echo $this->Form->control('pureza', [
+                        'type' => 'number',
+                        'step' => '0.05',
+                        'min' => '0.0',
+                        'max' => '1.0'
+                    ]);
                     echo $this->Form->control('materiales_inertes');
                 ?>
             </fieldset>
-            <?= $this->Form->button(__('Añadir')) ?>
+            <?= $this->Form->button(__('Agregar Resultado')) ?>
             <?= $this->Form->end() ?>
         </div>
     </div>
