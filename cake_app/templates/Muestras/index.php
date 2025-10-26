@@ -5,7 +5,7 @@
  */
 ?>
 <div class="muestras index content">
-    <?= $this->Html->link(__('New Muestra'), ['action' => 'add'], ['class' => 'button float-right']) ?>
+    <?= $this->Html->link(__('Registrar Muestra'), ['action' => 'add'], ['class' => 'button float-right']) ?>
     <h3><?= __('Muestras') ?></h3>
     <div class="table-responsive">
         <table>
@@ -15,7 +15,7 @@
                     <th><?= $this->Paginator->sort('Especie') ?></th>
                     <th><?= $this->Paginator->sort('Numero_de_presinto') ?></th>
                     <th><?= $this->Paginator->sort('Cantidad_de_semillas') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
+                    <th class="actions"><?= __('Acciones') ?></th>
                 </tr>
             </thead>
             <tbody>
@@ -33,7 +33,7 @@
                             ['action' => 'delete', $muestra->codigo_de_muestra],
                             [
                                 'method' => 'delete',
-                                'confirm' => __('Are you sure you want to delete # {0}?', $muestra->codigo_de_muestra),
+                                'confirm' => __('¿Estás seguro de que quieres borrar la muestra: {0}?', $muestra->codigo_de_muestra),
                             ]
                         ) ?>
                     </td>
