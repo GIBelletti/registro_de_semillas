@@ -47,11 +47,11 @@ class MuestrasController extends AppController
         if ($this->request->is('post')) {
             $muestra = $this->Muestras->patchEntity($muestra, $this->request->getData());
             if ($this->Muestras->save($muestra)) {
-                $this->Flash->success(__('The muestra has been saved.'));
+                $this->Flash->success(__('La muestra ha sido registrada.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The muestra could not be saved. Please, try again.'));
+            $this->Flash->error(__('La muestra no pudo ser registrada. Inténtalo de nuevo.'));
         }
         $this->set(compact('muestra'));
     }
@@ -69,11 +69,11 @@ class MuestrasController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $muestra = $this->Muestras->patchEntity($muestra, $this->request->getData());
             if ($this->Muestras->save($muestra)) {
-                $this->Flash->success(__('The muestra has been saved.'));
+                $this->Flash->success(__('La muestra {0} ha sido actualizada.', $id));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The muestra could not be saved. Please, try again.'));
+            $this->Flash->error(__('La muestra {0} no pudo ser actualizada. Inténtalo de nuevo.', $id));
         }
         $this->set(compact('muestra'));
     }
@@ -90,9 +90,9 @@ class MuestrasController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $muestra = $this->Muestras->get($id);
         if ($this->Muestras->delete($muestra)) {
-            $this->Flash->success(__('The muestra has been deleted.'));
+            $this->Flash->success(__('La muestra {0} ha sido borrada.', $id));
         } else {
-            $this->Flash->error(__('The muestra could not be deleted. Please, try again.'));
+            $this->Flash->error(__('La muestra {0} no pudo ser borrada. Inténtalo de nuevo.', $id));
         }
 
         return $this->redirect(['action' => 'index']);
