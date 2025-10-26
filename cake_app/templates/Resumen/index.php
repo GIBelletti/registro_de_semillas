@@ -5,7 +5,7 @@
     <h3>Resumen de Muestras y Resultados</h3>
     <?= $this->Form->create(null, ['type' => 'get', 'valueSources' => ['query']]) ?>
     <div style="margin-bottom:1rem;">
-        <?= $this->Form->control('especie', ['label' => 'especie', 'value' => $query['especie'] ?? '']) ?>
+        <?= $this->Form->control('especie', ['label' => 'Especie', 'value' => $query['especie'] ?? '']) ?>
         <?= $this->Form->button(__('Filtrar')) ?>
         <?= $this->Html->link('Limpiar filtros', ['action' => 'index']) ?>
     </div>
@@ -17,10 +17,10 @@
                 <th><?= $this->Paginator->sort('Muestras.codigo_de_muestra', 'Cod. Muestra') ?></th>
                 <th><?= $this->Paginator->sort('Muestras.empresa', 'Empresa') ?></th>
                 <th><?= $this->Paginator->sort('Muestras.especie', 'Especie') ?></th>
-                <th><?= $this->Paginator->sort('Resultados.poder_germinativo', 'Poder gerinativo') ?></th>
+                <th><?= $this->Paginator->sort('Resultados.poder_germinativo', 'Poder germinativo') ?></th>
                 <th><?= $this->Paginator->sort('Resultados.pureza', 'Pureza') ?></th>
                 <th>Materiales inertes</th>
-                <th>Acciones</th>
+                <!--<th>Acciones</th>-->
             </tr>
         </thead>
         <tbody>
@@ -60,9 +60,11 @@
                         };
                         ?>
                     </td>
+                    <!--
                     <td>
                         <?= $this->Html->link('Ver mas detalles', ['controller'=>'Muestras','action'=>'view', $muestra->codigo_de_muestra]) ?>
                     </td>
+                    -->
                 </tr>
             <?php endforeach; ?>
         </tbody>
