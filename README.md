@@ -13,7 +13,17 @@ Se crearon dos tablas:
 
 # Requerimientos
 
-Crear las tablas "Muestras" y "Resultados"
+## Base de datos
+
+1. Crear la base de datos.
+
+2. Copiar ```config/app_local.example.php``` en la misma carpeta y renombrarlo como ```app_local.php```.
+
+3. Actualizar los valores de '$username$', '$password$' y '$database$' con los valores de la creacion de la base de datos
+en ```config/app_local.php```.
+
+
+4. Crear las tablas "Muestras" y "Resultados"
 
 ```
 
@@ -39,7 +49,10 @@ CREATE TABLE resultados (
 );
 
 ```
+## Cargar el servidor
 
+4. Abrir la terminal en la carpeta ```cake_app```.
+5. Ejecutar el comando ```bin/cake server -p 8765```.
 
 ## Version
 
