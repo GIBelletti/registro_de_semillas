@@ -21,8 +21,8 @@
                 <?php foreach ($resultados as $resultado): ?>
                 <tr>
                     <td><?= h($resultado->codigo_de_muestra) ?></td>
-                    <td><?= $this->Number->format($resultado->poder_germinativo) ?></td>
-                    <td><?= $this->Number->format($resultado->pureza) ?></td>
+                    <td><?= number_format($resultado->poder_germinativo, 2) ?></td>
+                    <td><?= number_format($resultado->pureza, 2) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('Detalles'), ['action' => 'view', $resultado->codigo_de_muestra]) ?>
                         <?= $this->Html->link(__('Editar'), ['action' => 'edit', $resultado->codigo_de_muestra]) ?>

@@ -22,10 +22,12 @@
             <fieldset>
                 <legend><?= __('Editar Muestra: {0}', $muestra->codigo_de_muestra) ?></legend>
                 <?php
-                    echo $this->Form->control('especie');
                     echo $this->Form->control('numero_de_presinto');
                     echo $this->Form->control('empresa');
                     echo $this->Form->control('cantidad_de_semillas');
+                    echo $this->Form->control('fecha_extraccion', [
+                        'type' => 'date'
+                    ]);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Aplicar cambios')) ?>

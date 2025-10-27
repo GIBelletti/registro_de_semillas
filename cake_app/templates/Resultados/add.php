@@ -26,13 +26,13 @@
                     //echo $this->Form->control('codigo_de_muestra');
                     echo $this->Form->control('poder_germinativo', [
                         'type' => 'number',
-                        'step' => '0.05',
+                        'step' => '0.01',
                         'min' => '0.0',
                         'max' => '1.0'
                     ]);
                     echo $this->Form->control('pureza', [
                         'type' => 'number',
-                        'step' => '0.05',
+                        'step' => '0.01',
                         'min' => '0.0',
                         'max' => '1.0'
                     ]);

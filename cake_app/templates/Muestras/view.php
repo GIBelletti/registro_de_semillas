@@ -5,6 +5,9 @@
  */
 ?>
 <div class="row">
+    <?php
+        $time = $this->loadHelper('Time');
+    ?>
     <aside class="column">
         <div class="side-nav">
             <h4 class="heading"><?= __('Acciones') ?></h4>
@@ -33,6 +36,18 @@
                 <tr>
                     <th><?= __('Cantidad De Semillas') ?></th>
                     <td><?= $muestra->cantidad_de_semillas === null ? '' : $this->Number->format($muestra->cantidad_de_semillas) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Fecha de registro') ?></th>
+                    <td><?= $muestra->fecha_resgistro === null ? '' : $time->format($muestra->fecha_resgistro, 'dd/MM/YYYY HH:mm') ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Fecha de modificacion') ?></th>
+                    <td><?= $muestra->fecha_modificado === null ? '' : $time->format($muestra->fecha_modificado, 'dd/MM/YYYY HH:mm') ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Fecha de extraccion') ?></th>
+                    <td><?= $muestra->fecha_extraccion === null ? '-' : $time->format($muestra->fecha_extraccion, 'dd/MM/YYYY') ?></td>
                 </tr>
             </table>
             <div class="text">

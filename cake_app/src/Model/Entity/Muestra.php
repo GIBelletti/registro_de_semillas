@@ -13,6 +13,9 @@ use Cake\ORM\Entity;
  * @property int $numero_de_presinto
  * @property string $empresa
  * @property int $cantidad_de_semillas
+ * @property DateTime $fecha_resgistro
+ * @property DateTime $fecha_modificado
+ * @property DateTime $fecha_extraccion
  */
 class Muestra extends Entity
 {
@@ -30,6 +33,8 @@ class Muestra extends Entity
         'numero_de_presinto' => true,
         'empresa' => true,
         'cantidad_de_semillas' => true,
+        'fecha_modificado' => true,
+        'fecha_extraccion' => true,
     ];
 
     public function set_codigo_de_muestra()

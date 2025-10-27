@@ -8,6 +8,9 @@
     <?= $this->Html->link(__('Registrar Muestra'), ['action' => 'add'], ['class' => 'button float-right']) ?>
     <h3><?= __('Muestras') ?></h3>
     <div class="table-responsive">
+        <?php
+            $time = $this->loadHelper('Time');
+        ?>
         <table>
             <thead>
                 <tr>
@@ -15,6 +18,7 @@
                     <th><?= $this->Paginator->sort('Especie') ?></th>
                     <th><?= $this->Paginator->sort('Numero_de_presinto') ?></th>
                     <th><?= $this->Paginator->sort('Cantidad_de_semillas') ?></th>
+                    <th><?= $this->Paginator->sort('Registro') ?></th>
                     <th class="actions"><?= __('Acciones') ?></th>
                 </tr>
             </thead>
@@ -25,6 +29,7 @@
                     <td><?= h($muestra->especie) ?></td>
                     <td><?= $this->Number->format($muestra->numero_de_presinto) ?></td>
                     <td><?= $muestra->cantidad_de_semillas === null ? '' : $this->Number->format($muestra->cantidad_de_semillas) ?></td>
+                    <td><?= $time->format($muestra->fecha_resgistro, 'dd/MM/YYYY') ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('Detalles'), ['action' => 'view', $muestra->codigo_de_muestra]) ?>
                         <?= $this->Html->link(__('Editar'), ['action' => 'edit', $muestra->codigo_de_muestra]) ?>

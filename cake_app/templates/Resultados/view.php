@@ -24,11 +24,11 @@
                 </tr>
                 <tr>
                     <th><?= __('Poder Germinativo') ?></th>
-                    <td><?= $this->Number->format($resultado->poder_germinativo) ?></td>
+                    <td><?= number_format($resultado->poder_germinativo, 2) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Pureza') ?></th>
-                    <td><?= $this->Number->format($resultado->pureza) ?></td>
+                    <td><?= number_format($resultado->pureza, 2) ?></td>
                 </tr>
             </table>
             <div class="text">

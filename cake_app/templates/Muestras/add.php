@@ -21,6 +21,9 @@
                     echo $this->Form->control('numero_de_presinto');
                     echo $this->Form->control('empresa');
                     echo $this->Form->control('cantidad_de_semillas');
+                    echo $this->Form->control('fecha_extraccion', [
+                        'type' => 'date'
+                    ]);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Registrar')) ?>
