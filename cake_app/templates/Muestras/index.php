@@ -21,7 +21,7 @@
             <tbody>
                 <?php foreach ($muestras as $muestra): ?>
                 <tr>
-                    <td><?= $this->Number->format($muestra->codigo_de_muestra) ?></td>
+                    <td><?= h($muestra->codigo_de_muestra) ?></td>
                     <td><?= h($muestra->especie) ?></td>
                     <td><?= $this->Number->format($muestra->numero_de_presinto) ?></td>
                     <td><?= $muestra->cantidad_de_semillas === null ? '' : $this->Number->format($muestra->cantidad_de_semillas) ?></td>

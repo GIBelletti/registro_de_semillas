@@ -70,7 +70,6 @@ class MuestrasTable extends Table
             ->notEmptyString('numero_de_presinto', 'Por favor, ingrese el numero del presinto de la muestra.')
             ->greaterThanOrEqual('numero_de_presinto', 0, 'El valor debe ser positivo.');
 
-
         $validator
             ->scalar('empresa')
             ->requirePresence('empresa', 'create')

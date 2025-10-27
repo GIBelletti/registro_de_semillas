@@ -8,7 +8,7 @@ use Cake\ORM\Entity;
 /**
  * Resultado Entity
  *
- * @property int $codigo_de_muestra
+ * @property string $codigo_de_muestra
  * @property float $poder_germinativo
  * @property float $pureza
  * @property string $materiales_inertes

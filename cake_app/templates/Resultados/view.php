@@ -20,7 +20,7 @@
             <table>
                 <tr>
                     <th><?= __('Codigo De Muestra') ?></th>
-                    <td><?= $this->Number->format($resultado->codigo_de_muestra) ?></td>
+                    <td><?= h($resultado->codigo_de_muestra) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Poder Germinativo') ?></th>

@@ -8,7 +8,7 @@ use Cake\ORM\Entity;
 /**
  * Muestra Entity
  *
- * @property int $codigo_de_muestra
+ * @property string $codigo_de_muestra
  * @property string $especie
  * @property int $numero_de_presinto
  * @property string $empresa
@@ -26,10 +26,14 @@ class Muestra extends Entity
      * @var array<string, bool>
      */
     protected array $_accessible = [
-        //'codigo_de_muestra' => true,
         'especie' => true,
         'numero_de_presinto' => true,
         'empresa' => true,
         'cantidad_de_semillas' => true,
     ];
+
+    public function set_codigo_de_muestra()
+    {
+        $this->codigo_de_muestra = $this->especie . "-" . uniqid();
+    }
 }

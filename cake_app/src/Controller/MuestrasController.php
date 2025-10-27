@@ -46,6 +46,7 @@ class MuestrasController extends AppController
         $muestra = $this->Muestras->newEmptyEntity();
         if ($this->request->is('post')) {
             $muestra = $this->Muestras->patchEntity($muestra, $this->request->getData());
+            $muestra->set_codigo_de_muestra();
             if ($this->Muestras->save($muestra)) {
                 $this->Flash->success(__('La muestra ha sido registrada.'));
 

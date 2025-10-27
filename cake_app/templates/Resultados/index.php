@@ -20,7 +20,7 @@
             <tbody>
                 <?php foreach ($resultados as $resultado): ?>
                 <tr>
-                    <td><?= $this->Number->format($resultado->codigo_de_muestra) ?></td>
+                    <td><?= h($resultado->codigo_de_muestra) ?></td>
                     <td><?= $this->Number->format($resultado->poder_germinativo) ?></td>
                     <td><?= $this->Number->format($resultado->pureza) ?></td>
                     <td class="actions">

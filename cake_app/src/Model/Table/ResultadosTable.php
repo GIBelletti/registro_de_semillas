@@ -58,7 +58,6 @@ class ResultadosTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
-            ->integer('codigo_de_muestra', 'Debe ser un número entero')
             ->requirePresence('codigo_de_muestra', 'create', 'El campo id es obligatorio')
             ->notEmptyString('codigo_de_muestra', 'Debe asociarse a un ítem existente');
 
