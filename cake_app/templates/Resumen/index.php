@@ -5,12 +5,23 @@
     <h3>Resumen de Muestras y Resultados</h3>
     <?= $this->Form->create(null, ['type' => 'get', 'valueSources' => ['query']]) ?>
     <div style="margin-bottom:1rem;">
+        <?= $this->Form->control('codigo_de_muestra', ['label' => 'Cod. de muestra', 'value' => $query['codigo_de_muestra'] ?? '']) ?>
         <?= $this->Form->control('especie', ['label' => 'Especie', 'value' => $query['especie'] ?? '']) ?>
+        <tr>
+            <?php
+                echo 'Fecha de registro';
+                echo $this->Form->control('start_date', ['label' => 'A partir de: ', 'value' => $query['start_date'] ?? '', 'type' => 'date']);
+                echo $this->Form->control('end_date', ['label' => 'Hasta: ', 'value' => $query['end_date'] ?? '', 'type' => 'date']);
+            ?>
+        </tr>
         <?= $this->Form->button(__('Filtrar')) ?>
         <?= $this->Html->link('Limpiar filtros', ['action' => 'index']) ?>
     </div>
     <?= $this->Form->end() ?>
     
+    <?php
+        $time = $this->loadHelper('Time');
+    ?>
     <table>
         <thead>
             <tr>
@@ -20,6 +31,7 @@
                 <th><?= $this->Paginator->sort('Resultados.poder_germinativo', 'Poder germinativo') ?></th>
                 <th><?= $this->Paginator->sort('Resultados.pureza', 'Pureza') ?></th>
                 <th>Materiales inertes</th>
+                <th><?= $this->Paginator->sort('Muestras.fecha_resgistro', 'Fecha de registro') ?></th>
                 <!--<th>Acciones</th>-->
             </tr>
         </thead>
@@ -60,11 +72,7 @@
                         };
                         ?>
                     </td>
-                    <!--
-                    <td>
-                        <?= $this->Html->link('Ver mas detalles', ['controller'=>'Muestras','action'=>'view', $muestra->codigo_de_muestra]) ?>
-                    </td>
-                    -->
+                    <td><?= $time->format($muestra->fecha_resgistro, 'dd/MM/YYYY HH:mm') ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
