@@ -9,7 +9,9 @@ Se utilizo el Plug-in $Bake$ del composer de CakePHP para generar la plantilla.
 
 Se crearon dos tablas:
 
-![a](DiagramaSemillasSQL.png)
+<div align="center">
+<img src="DiagramaSemillasSQL.png">
+</div>
 
 En la tabla de resultados tanto la $pureza$ como $poder\_germinativo$ son flotantes que van desde el 0.00 hasta el 1.00, con saltos de 0.01.
 
