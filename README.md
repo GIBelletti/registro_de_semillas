@@ -1,8 +1,9 @@
 # Registro de semillas
+
 Registra y gestiona muestras de semillas recibidas. Cada muestra contiene información sobre su origen y posteriormente se le asocian resultados de análisis.
 
 
-# Solucion implementada
+## Solucion implementada
 
 Se utilizo el plugin $Bake$ del composer de CakePHP para generar la plantilla.
 
@@ -16,7 +17,16 @@ En la tabla de resultados tanto la $pureza$ como $poder\_germinativo$ son floata
 
 Todas las paginas tienen un boton de $INICIO$ en la parte superior izquierda que retorna a la pagina principal.
 
+En las paginas que ofrecen una vista del listado se pueden ordenar haciendo clic en los nombres de las columnas.
+
+Tanto en los resultados como en las muestras se pueden editar borrar o tener mas detalles. Desde Resumen no se puede editar o borrar. Al borrar una muestra se borra automaticamente el resultado asociado si es que tiene uno.
+
+Se permite colapsar el filtro del resumen, pero se dejo por defecto abierto para que se vean sus funciones.
+
 # Requerimientos
+
+CakePHP 5.X.X
+MySQL
 
 ## Base de datos
 
@@ -36,6 +46,8 @@ Recordar remplazar los campos del ejemplo si se utiliza.
 en ```config/app_local.php```.
 
 4. Crear las tablas "Muestras" y "Resultados"
+
+El mismo codigo esta en el script ```Script-semillas.sql```.
 
 ```sql
 DROP TABLE IF EXISTS resultados;
@@ -67,8 +79,6 @@ CREATE TABLE resultados (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 ```
 
-El mismo codigo esta en el script ```Script-semillas.sql```.
-
 
 ## Cargar el servidor
 
@@ -86,6 +96,17 @@ Es posible que se requieran permisos adicionales para ejecutar el comando para i
 sudo chown -R $USER:www-data tmp logs
 sudo chmod -R 775 tmp logs
 ```
+
+Es nesesario que sean archivos escribibles.
+
+### Conexión BDD rechazada
+
+Revisa `config/app_local.php` y credenciales en MySQL.
+Es posible que esta mal escrito el usuario o sus permisos en la base de datos o que se hayan escrito mal en el archivo.
+
+### Faltan dependencias
+
+Ejecutar en la consola `composer install` desde la raíz del proyecto, deberia solucionarlo.
 
 ### Advertencia en la pagina principal
 

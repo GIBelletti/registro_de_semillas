@@ -6,7 +6,7 @@
     <?= $this->Form->create(null, ['type' => 'get', 'valueSources' => ['query']]) ?>
     <div style="margin-bottom:1rem;">
         <details open>
-            <summary>Click para expandir/collapsar filtros</summary>
+            <summary>Clic para expandir o collapsar filtros</summary>
             <?= $this->Form->control('codigo_de_muestra', ['label' => 'Cod. de muestra', 'value' => $query['codigo_de_muestra'] ?? '']) ?>
             <?= $this->Form->control('especie', ['label' => 'Especie', 'value' => $query['especie'] ?? '']) ?>
             <tr>
