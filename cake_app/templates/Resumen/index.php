@@ -5,17 +5,20 @@
     <h3>Resumen de Muestras y Resultados</h3>
     <?= $this->Form->create(null, ['type' => 'get', 'valueSources' => ['query']]) ?>
     <div style="margin-bottom:1rem;">
-        <?= $this->Form->control('codigo_de_muestra', ['label' => 'Cod. de muestra', 'value' => $query['codigo_de_muestra'] ?? '']) ?>
-        <?= $this->Form->control('especie', ['label' => 'Especie', 'value' => $query['especie'] ?? '']) ?>
-        <tr>
-            <?php
-                echo 'Fecha de registro';
-                echo $this->Form->control('start_date', ['label' => 'A partir de: ', 'value' => $query['start_date'] ?? '', 'type' => 'date']);
-                echo $this->Form->control('end_date', ['label' => 'Hasta: ', 'value' => $query['end_date'] ?? '', 'type' => 'date']);
-            ?>
-        </tr>
-        <?= $this->Form->button(__('Filtrar')) ?>
-        <?= $this->Html->link('Limpiar filtros', ['action' => 'index']) ?>
+        <details open>
+            <summary>Click para expandir/collapsar filtros</summary>
+            <?= $this->Form->control('codigo_de_muestra', ['label' => 'Cod. de muestra', 'value' => $query['codigo_de_muestra'] ?? '']) ?>
+            <?= $this->Form->control('especie', ['label' => 'Especie', 'value' => $query['especie'] ?? '']) ?>
+            <tr>
+                <?php
+                    echo 'Fecha de registro';
+                    echo $this->Form->control('start_date', ['label' => 'A partir de: ', 'value' => $query['start_date'] ?? '', 'type' => 'date']);
+                    echo $this->Form->control('end_date', ['label' => 'Hasta: ', 'value' => $query['end_date'] ?? '', 'type' => 'date']);
+                ?>
+            </tr>
+            <?= $this->Form->button(__('Filtrar')) ?>
+            <?= $this->Html->link('Limpiar filtros', ['action' => 'index']) ?>
+        </details>
     </div>
     <?= $this->Form->end() ?>
     
