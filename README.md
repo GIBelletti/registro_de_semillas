@@ -4,11 +4,15 @@ Registra y gestiona muestras de semillas recibidas. Cada muestra contiene inform
 
 # Solucion implementada
 
+Se utilizo el plugin $Bake$ del composer de CakePHP para generar la plantilla.
+
 Se crearon dos tablas:
 
 <div align="center">
 <img src="DiagramaSemillasSQL.png" alt="Texto alternativo">
 </div>
+
+En la tabla de resultados tanto la $pureza$ como $poder\_germinativo$ son floatantes que van desde el 0.00 hasta el 1.00, con saltos de 0.01.
 
 
 # Requerimientos
@@ -16,6 +20,14 @@ Se crearon dos tablas:
 ## Base de datos
 
 1. Crear la base de datos.
+Ejemplo (en mysql ```sudo mysql -u root -p```) :
+```sql
+CREATE DATABASE <nombre de la BDD> CHARACTER SET utf8mb4;
+GRANT ALL PRIVILEGES ON <nombre de la BDD>.* TO '<nombre de usuario>'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
+```
+Recordar remplazar los campos del ejemplo si se utiliza.
 
 2. Copiar ```config/app_local.example.php``` en la misma carpeta y renombrarlo como ```app_local.php```.
 
@@ -24,7 +36,7 @@ en ```config/app_local.php```.
 
 4. Crear las tablas "Muestras" y "Resultados"
 
-```
+```sql
 DROP TABLE IF EXISTS resultados;
 DROP TABLE IF EXISTS muestras;
 
@@ -54,13 +66,34 @@ CREATE TABLE resultados (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 ```
 
-El mismo codigo esta en el script ```Script-semillas.sql```
+El mismo codigo esta en el script ```Script-semillas.sql```.
 
 
 ## Cargar el servidor
 
-4. Abrir la terminal en la carpeta ```cake_app```.
-5. Ejecutar el comando ```bin/cake server -p 8765```.
+1. Abrir la terminal en la carpeta ```cake_app```.
+2. Ejecutar el comando ```bin/cake server -p 8765```.
+3. Abrir el link ```http://localhost:8765``` donde se abrira la pagina de inicio.
+
+## Posibles problemas
+
+### Permisos adicionales
+
+Es posible que se requieran permisos adicionales para ejecutar el comando para iniciar el servidor.
+
+```bash
+sudo chown -R $USER:www-data tmp logs
+sudo chmod -R 775 tmp logs
+```
+
+### Advertencia en la paguina principal
+
+Es posible que aparesca un cartel de error en las paginas por la conexion de la base de datos.
+
+```bash
+sudo apt install php-sqlite3
+sudo systemctl restart apache2   # o reiniciar PHP-FPM
+```
 
 ## Version
 
