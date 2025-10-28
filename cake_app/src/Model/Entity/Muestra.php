@@ -39,6 +39,7 @@ class Muestra extends Entity
 
     public function set_codigo_de_muestra()
     {
-        $this->codigo_de_muestra = $this->especie . "-" . uniqid();
+        $initial_code = strtoupper($this->especie);
+        $this->codigo_de_muestra = $initial_code . "-" . uniqid();
     }
 }
