@@ -3,9 +3,9 @@
 Registra y gestiona muestras de semillas recibidas. Cada muestra contiene información sobre su origen y posteriormente se le asocian resultados de análisis.
 
 
-## Solucion implementada
+## Solución implementada
 
-Se utilizo el plugin $Bake$ del composer de CakePHP para generar la plantilla.
+Se utilizo el Plug-in $Bake$ del composer de CakePHP para generar la plantilla.
 
 Se crearon dos tablas:
 
@@ -13,13 +13,13 @@ Se crearon dos tablas:
 <img src="DiagramaSemillasSQL.png" alt="Texto alternativo">
 </div>
 
-En la tabla de resultados tanto la $pureza$ como $poder\_germinativo$ son floatantes que van desde el 0.00 hasta el 1.00, con saltos de 0.01.
+En la tabla de resultados tanto la $pureza$ como $poder\_germinativo$ son flotantes que van desde el 0.00 hasta el 1.00, con saltos de 0.01.
 
-Todas las paginas tienen un boton de $INICIO$ en la parte superior izquierda que retorna a la pagina principal.
+Todas las paginas tienen un botón de $INICIO$ en la parte superior izquierda que retorna a la pagina principal.
 
 En las paginas que ofrecen una vista del listado se pueden ordenar haciendo clic en los nombres de las columnas.
 
-Tanto en los resultados como en las muestras se pueden editar borrar o tener mas detalles. Desde Resumen no se puede editar o borrar. Al borrar una muestra se borra automaticamente el resultado asociado si es que tiene uno.
+Tanto en los resultados como en las muestras se pueden editar borrar o tener mas detalles. Desde Resumen no se puede editar o borrar. Al borrar una muestra se borra automáticamente el resultado asociado si es que tiene uno.
 
 Se permite colapsar el filtro del resumen, pero se dejo por defecto abierto para que se vean sus funciones.
 
@@ -42,8 +42,25 @@ Recordar remplazar los campos del ejemplo si se utiliza.
 
 2. Copiar ```config/app_local.example.php``` en la misma carpeta y renombrarlo como ```app_local.php```.
 
-3. Actualizar los valores de '$username$', '$password$' y '$database$' con los valores de la creacion de la base de datos
+3. Actualizar los valores de '$username$', '$password$' y '$database$' con los valores de la creación de la base de datos
 en ```config/app_local.php```.
+
+Ejemplo:
+
+```php
+
+    'Datasources' => [
+        'default' => [
+            'host' => 'localhost',
+
+            'username' => '<Aca va el nombre de usuario de MySQL>',
+            'password' => '<Contraseña del usuario>',
+
+            'database' => '<Nombre de la base de datos>',
+
+            'url' => env('DATABASE_URL', null),
+        ],
+```
 
 4. Crear las tablas "Muestras" y "Resultados"
 
@@ -84,7 +101,7 @@ CREATE TABLE resultados (
 
 1. Abrir la terminal en la carpeta ```cake_app```.
 2. Ejecutar el comando ```bin/cake server -p 8765```.
-3. Abrir el link ```http://localhost:8765``` donde se abrira la pagina de inicio.
+3. Abrir el link ```http://localhost:8765``` donde se abrirá la pagina de inicio.
 
 ## Posibles problemas
 
@@ -97,7 +114,7 @@ sudo chown -R $USER:www-data tmp logs
 sudo chmod -R 775 tmp logs
 ```
 
-Es nesesario que sean archivos escribibles.
+Es necesario que sean archivos con permiso de escritura.
 
 ### Conexión BDD rechazada
 
@@ -106,17 +123,35 @@ Es posible que esta mal escrito el usuario o sus permisos en la base de datos o 
 
 ### Faltan dependencias
 
-Ejecutar en la consola `composer install` desde la raíz del proyecto, deberia solucionarlo.
+Ejecutar en la consola `composer install` desde la raíz del proyecto, debería solucionarlo.
 
 ### Advertencia en la pagina principal
 
-Es posible que aparesca un cartel de error en las paginas por la conexion de la base de datos.
+Es posible que aparezca un cartel de error en las paginas por la conexión de la base de datos.
 
 ```bash
 sudo apt install php-sqlite3
 sudo systemctl restart apache2   # o reiniciar PHP-FPM
 ```
 
+### Advertencia de seguridad
+
+Es posible que no se tenga la variable de entorno configurado y esto pueda causar una advertencia.
+
+Esto se soluciona cargando el valor de esta variable de entorno `__SALT__`.
+
+También es posible solventar el cartel de advertencia remplazando el valor en el archivo `config/app_local.php`.
+
+```php
+    'Security' => [
+        'salt' => env('SECURITY_SALT', '__SALT__'),
+    ],
+```
+
 ## Version
 
 CakePHP 5.2.9
+
+# Pruebas
+
+Todas las pruebas fueron manuales fueron realizadas en un navegador Firefox 144.0 de 64-bit.
