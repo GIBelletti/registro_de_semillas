@@ -14,6 +14,7 @@ Se crearon dos tablas:
 
 En la tabla de resultados tanto la $pureza$ como $poder\_germinativo$ son floatantes que van desde el 0.00 hasta el 1.00, con saltos de 0.01.
 
+Todas las paginas tienen un boton de $INICIO$ en la parte superior izquierda que retorna a la pagina principal.
 
 # Requerimientos
 
@@ -86,7 +87,7 @@ sudo chown -R $USER:www-data tmp logs
 sudo chmod -R 775 tmp logs
 ```
 
-### Advertencia en la paguina principal
+### Advertencia en la pagina principal
 
 Es posible que aparesca un cartel de error en las paginas por la conexion de la base de datos.
 
